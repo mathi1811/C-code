@@ -1,0 +1,39 @@
+#include<stdio.h>//(((ab)
+#include<string.h>
+  int main()
+  {
+     char str[1000];
+     int len,start,end,open=0,close=0,ind;
+     scanf("%s",str);
+     len=strlen(str);
+     for(start=0,end=len-1;start<len;start++,end--)
+    {
+ 	   if(str[start]=='(')   //(((ab)
+            open++; 
+       else if(str[start]==')')
+            open--; //-1
+       if(str[end]==')')
+            close++; //1
+       else if(str[end]=='(')
+            close--;
+      if(open<0)
+      {
+           str[start]=-1;
+      
+if(open<0)
+      {
+           str[start]=-1;
+           open=0;
+      }
+      if(close<0)
+      {
+             str[end]=-1;
+             close =0;
+       }
+   }
+  for(ind=0;str[ind];ind++)
+    if(str[ind]!=-1)
+    printf("%c",str[ind]);
+    return 0;
+}
+     
